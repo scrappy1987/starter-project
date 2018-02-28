@@ -12,8 +12,43 @@
             </div>
         </div>
     </nav>
+    <div class="container" ng-init ="accounts=[
+    {'firstName': 'John', 'secondName': 'Doe','accountNumber': '1234'},
+    {'firstName': 'Jane','secondName': 'Doe','accountNumber': '1235'},
+    {'firstName': 'Jane','secondName': 'Doe','accountNumber': '1236'},
+    {'firstName': 'Brendan','secondName': 'Greene','accountNumber': '1237'},
+    {'firstName': 'Grace','secondName': 'Greene','accountNumber': '1238'},
+    {'firstName': 'Tess','secondName': 'Greene','accountNumber': '1239'},
+    {'firstName': 'Medb','secondName': 'Greene','accountNumber': '1240'},
+    {'firstName': 'Decland','secondName': 'Horlick','accountNumber': '1241'},
+    {'firstName': 'IAN','secondName': 'Cunningham','accountNumber': '1242'},
+    {'firstName': 'Josh','secondName': 'Sherwood','accountNumber': '1243'},
+    {'firstName': 'Steven','secondName': 'Spielberg','accountNumber': '1244'}
+    ]">
+    	<!--  h3><span>Simple example</span></h3-->
+    	<!-- ul>
+    		<li ng-repeat="account in accounts">{{account}}</li>
+    	</ul-->
+    	<input type="button" value="set font color of table head: blue" ng-click="myStyle={color:'blue'}">
+    	<input type="button" value="set background of table head: red" ng-click="myStyle={'background-color':'red'}">
+    	<input type="button" value="reset color" ng-click="myStyle={}">
+    	Hide div: <input type="checkbox" ng-model="isHidden"/>
+    	<h3><span>Table example</span></h3>
+    	<table ng-hide="isHidden" class="table table-striped">
+    		<tr ng-style="myStyle">
+    			<th>first</th>
+    			<th>second</th>
+    			<th>number</th>
+    		</tr>
+    		<tr ng-repeat="account in accounts">
+    			<td> {{account.firstName |  lowercase}} </td>
+    			<td> {{account.secondName | uppercase}} </td>
+    			<td> {{account.accountNumber}} </td>
+    		</tr>
+    	</table>
+    	</div>
+
     
-    <div>{{5+5}}</div>
 	<link rel="stylesheet" href="scripts/bootstrap.min.css"> 
     <script src="scripts/jquery-2.1.4.min.js"></script>
     <script src="scripts/angular.min.js"></script>
