@@ -12,7 +12,7 @@
                 url: "/account",
                 templateUrl: "app/feature/account/account.html"
         }).state("transaction", {
-            url: "/transaction",
+            url: "/account",
             templateUrl: "app/feature/transaction/transaction.html"
     })
     });

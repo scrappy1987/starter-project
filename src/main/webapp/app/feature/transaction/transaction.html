@@ -1,18 +1,17 @@
-<div ng-controller="transactionController as transactionCtrl">
-	<h2>askldfjaskldj</h2>
-	<p>Best Trainer: {{transactionCtrl.bestTrainer}}</p>
-	<p>Worst Trainer: {{transactionCtrl.worstTrainer}}</p>
+<div class="panel panel-default"  ng-controller="transactionController as transactionCtrl">
+	<div class="panel-heading">Transactions Page</div>
+	<div class="panel-body">
+	<h3><span>Transactions Table</span></h3>
 	<table class="table">
-	
-	
         		<tr>
         			<th>{{'transactions' | uppercase}}</th>
         		</tr>
         		<tr ng-repeat="transaction in transactionCtrl.transactions">
-        			<td>{{account.firstName}}</td>
-        			<td>{{account.secondName}}</td>
-        			<td>{{account.accountNumber}}</td>
+        			<td>{{transaction.firstName}}</td>
+        			<td>{{transaction.secondName}}</td>
+        			<td>{{transaction.accountNumber}}</td>
         		</tr>
     </table>
 
+</div>
 </div>
