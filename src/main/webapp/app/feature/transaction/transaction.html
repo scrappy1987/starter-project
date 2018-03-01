@@ -1,0 +1,18 @@
+<div ng-controller="transactionController as transactionCtrl">
+	<h2>askldfjaskldj</h2>
+	<p>Best Trainer: {{transactionCtrl.bestTrainer}}</p>
+	<p>Worst Trainer: {{transactionCtrl.worstTrainer}}</p>
+	<table class="table">
+	
+	
+        		<tr>
+        			<th>{{'transactions' | uppercase}}</th>
+        		</tr>
+        		<tr ng-repeat="transaction in transactionCtrl.transactions">
+        			<td>{{account.firstName}}</td>
+        			<td>{{account.secondName}}</td>
+        			<td>{{account.accountNumber}}</td>
+        		</tr>
+    </table>
+
+</div>

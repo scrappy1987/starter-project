@@ -11,34 +11,15 @@
             <div class="navbar-header">
                 <a class="navbar-brand">Banking Application</a>
             </div>
+            <ul class="nav navbar-nav">
+	            <li><a ui-sref="dashboard">Dashboard</a></li>
+	            <li><a ui-sref="account">Account</a></li>
+	            <li><a ui-sref="transaction">Transaction</a></li>
+	        </ul>
         </div>
     </nav>
-    <div class="dashboard panel panel-default" ng-controller="accountController as accountCtrl">
-	    <div class="panel-heading">Accounts Page</div>
-	    
-   		<div ng-hide="accountCtrl.isHidden">
-        	<h3><span>Accounts Table</span></h3>
-        	<span ng-show="accountCtrl.sort"> Sorted by: {{accountCtrl.sort | uppercase}}</span>
-        	<table class="table">
-        		<tr>
-        			<th ng-click="accountCtrl.sortColumn('firstName')">{{'first_name' | uppercase}}</th>
-        			<th ng-click="accountCtrl.sortColumn('secondName')">{{'surname' | uppercase}}</th>
-        			<th>{{'account_number' | uppercase}}</th>
-        		</tr>
-        		<tr ng-repeat="account in accountCtrl.accounts | orderBy: accountCtrl.sort">
-        			<td ng-style="blueStyle">{{account.firstName}}</td>
-        			<td ng-style="redStyle">{{account.secondName}}</td>
-        			<td ng-style="yellowStyle">{{account.accountNumber}}</td>
-        		</tr>
-        	</table>
-        </div>
-        <button class="btn" ng-click="blueStyle={color:'blue'}">first names blue</button>
-        <button class="btn" ng-click="redStyle={color:'red'}">second names red</button>
-        <button class="btn" ng-click="yellowStyle={color:'yellow'}">account numbers yellow</button>
-        <button class="btn" ng-click="yellowStyle={};redStyle={};blueStyle={};accountCtrl.sort=''">Reset</button>
-        <button class="btn" ng-click="accountCtrl.hideTable()">Hide accounts</button>
-	</div>
-    
+   
+    <div ui-view></div>
     
 	
     <script src="scripts/jquery-2.1.4.min.js"></script>
@@ -46,6 +27,9 @@
     <script src="scripts/ui-router.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
     <script src="app/app.js"></script>
-    <SCript src="app/controllers/account-controller.js"></SCript>
+    <script src="app/app-state-manager.js"></script>
+    <script src="app/feature/transaction/transaction-controller.js"></script>
+    <script src="app/feature/account/account-controller.js"></script>
+    <script src="app/feature/dashboard/dashboard-controller.js"></script>
 </body>
 </html>
