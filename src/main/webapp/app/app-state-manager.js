@@ -9,11 +9,15 @@
             url: "/dashboard",
             templateUrl: "app/feature/dashboard/dashboard.html"
         }).state("account", {
-                url: "/account",
-                templateUrl: "app/feature/account/account.html"
+        		url: "/account",
+        		templateUrl: "app/feature/account/account.html"
         }).state("transaction", {
-            url: "/account",
-            templateUrl: "app/feature/transaction/transaction.html"
-    })
+        		url: "/transaction",
+        		templateUrl: "app/feature/transaction/transaction.html"
+        }).state('details', {
+    			url : '/transaction-detail',
+    			params : {transactionId: null},
+    			templateUrl : "app/feature/transaction-detail/detail.html"
+ 		})
     });
 }());

@@ -1,10 +1,8 @@
 (function() {
 
-    var TransactionController =  function($state) {
+    var DetailController =  function($stateParams, $state) {
         
     	var vm = this;
-    	vm.accNum;
-    	vm.transId;
     	
     	vm.transactions = [
         	{'id': 1, 'transactionName': 'Tesco', 'transactionNumber': '20','accountNumber': '1234'},
@@ -29,23 +27,11 @@
         	{'id': 20, 'transactionName': 'Tesco','transactionNumber': '10','accountNumber': '1246'},
         	{'id': 21, 'transactionName': 'Tesco','transactionNumber': '20','accountNumber': '1247'}
         	];
-            
-            vm.getAccNo = function(currAccNum)
-            {
-            	vm.accNum = currAccNum
-            	console.log(vm.accNum)
-            };
+        	
+        	 vm.transactionId = $state.params.transactionId;
+			 console.log("TransId " + vm.transactionId);
         
-        	    			
-    		vm.transId = function(myTransaction)
-            {
-             vm.transId = myTransaction;
-            	console.log(myTransaction);
-            	$state.go('details',{transactionId:vm.transId});
-            };
-            
-            
-            
     };
-    angular.module('accountApp').controller('transactionController', ['$state',TransactionController]);
+
+    angular.module('accountApp').controller('detailController', ['$stateParams', '$state', DetailController]);
 }());

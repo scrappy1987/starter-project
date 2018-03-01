@@ -1,17 +1,32 @@
-<div class="panel panel-default"  ng-controller="transactionController as transactionCtrl">
-	<div class="panel-heading">Transactions Page</div>
-	<div class="panel-body">
-	<h3><span>Transactions Table</span></h3>
-	<table class="table">
+<div class="panel panel-default" ng-controller = "transactionController as transactionCtrl">
+	<div class="panel-heading">Transactions page</div>
+	    <div class="dropdown">
+	    		<div class="btn-group">
+  				<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    				AccNo
+  				</button>
+  			<div class="dropdown-menu">
+  				<li class="dropdown-item">
+  					<a class="dropdown-item" href="#" ng-repeat="transaction in transactionCtrl.transactions" ng-click="transactionCtrl.getAccNo(transaction.accountNumber)">{{transaction.accountNumber}}</a>
+    				</li>
+  			</div>
+		</div>
+	    <div class="panel-body">
+   		<div ng-show="transactionCtrl.accNum">
+        	<h3><span>Transactions table</span></h3>
+        	<table  class="table">
         		<tr>
-        			<th>{{'transactions' | uppercase}}</th>
+        			<th>{{'transaction_id' | uppercase}}</th>
+        			<th>{{'transaction_name' | uppercase}}</th>
+        			<th></th>
         		</tr>
-        		<tr ng-repeat="transaction in transactionCtrl.transactions">
-        			<td>{{transaction.firstName}}</td>
-        			<td>{{transaction.secondName}}</td>
-        			<td>{{transaction.accountNumber}}</td>
+        		<tr ng-repeat="transaction in transactionCtrl.transactions  | filter:transactionCtrl.accNum">
+        			<td>{{transaction.id}}</td>
+        			<td>{{transaction.transactionName}}</td>
+        			<td><button class="btn" ng-click="transactionCtrl.transId(transaction.id)">Details</button></td>
         		</tr>
-    </table>
-
-</div>
+        	</table>
+        </div>
+	</div>
+	</div>
 </div>
